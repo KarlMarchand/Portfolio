@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Google",
+        "link": "http://www.google.com",
+        "description": "This is an exemple",
+        "tags": [
+            "javascript",
+            "css",
+            "html"
+        ],
+        "imgUrl": "/imgs/google.webp"
+    },
+    {
+        "id": 2,
+        "name": "Facebook",
+        "link": "http://www.facebook.com",
+        "description": "This is an exemple",
+        "tags": [
+            "javascript",
+            "css",
+            "html"
+        ],
+        "imgUrl": "/imgs/facebook.webp"
+    },
+    {
+        "id": 3,
+        "name": "Instagram",
+        "link": "http://www.instagram.com",
+        "description": "This is an exemple",
+        "tags": [
+            "javascript",
+            "css",
+            "html"
+        ],
+        "imgUrl": "/imgs/instagram.webp"
+    }
+]

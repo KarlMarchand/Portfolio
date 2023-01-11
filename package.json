@@ -4,7 +4,7 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "node build-script.js && vite",
-		"build": "node build-script.js && tsc && vite build",
+		"build": "node build-script.js --build && tsc && vite build",
 		"preview": "vite preview"
 	},
 	"dependencies": {

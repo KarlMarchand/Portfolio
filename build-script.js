@@ -7,9 +7,10 @@
 const fs = require("fs");
 const path = require("path");
 
-const combineProjects = async () => {
+const combineProjects = async (buildMode) => {
 	// The root directory for the projects
-	const PROJECTS_ROOT = "./src/projects";
+	const PROJECTS_ROOT = "./public/projects";
+	const PROJECTS_DIST = buildMode ? "./projects" : PROJECTS_ROOT;
 	const filePath = PROJECTS_ROOT + "/combined-data.json";
 
 	// Delete the existing combined file if it exists
@@ -31,19 +32,20 @@ const combineProjects = async () => {
 			const projectData = JSON.parse(fs.readFileSync(projectDataFilePath));
 
 			// Add the thumbnail image to the project data object
-			projectData.thumbnailUrl = path.join(PROJECTS_ROOT, projectDir, "thumbnail.webp");
+			projectData.thumbnailUrl = path.join(PROJECTS_DIST, projectDir, "thumbnail.webp");
 
 			// Read all the images in the project's directory
 			projectData.imgs = fs
 				.readdirSync(path.join(PROJECTS_ROOT, projectDir))
 				.filter((file) => file.endsWith(".webp") || file.endsWith(".png") || file.endsWith(".jpg"))
-				.map((image) => path.join(PROJECTS_ROOT, projectDir, image));
+				.map((image) => path.join(PROJECTS_DIST, projectDir, image));
 
 			// Look for a video in the project's directory
 			try {
-				fs.accessSync(filePath);
+				const path = path.join(PROJECTS_ROOT, projectDir, "video.webm");
+				fs.accessSync(path);
 				// file exists
-				projectData.video = path.join(PROJECTS_ROOT, projectDir, "video.webm");
+				projectData.video = path.join(PROJECTS_DIST, projectDir, "video.webm");
 			} catch (e) {
 				// file does not exists, add an empty string
 				projectData.video = "";
@@ -59,5 +61,10 @@ const combineProjects = async () => {
 };
 
 (async () => {
-	await combineProjects();
+	const args = process.argv.slice(2);
+	let buildMode = false;
+	if (args.length > 0) {
+		buildMode = true;
+	}
+	await combineProjects(buildMode);
 })();

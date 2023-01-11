@@ -6,7 +6,7 @@ import Portfolio from "./pages/Portfolio";
 import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
 import ProjectData from "./types/ProjectData";
-import data from "./projects/combined-data.json";
+import data from "../public/projects/combined-data.json";
 
 const App: React.FC = () => {
 	const [projectsList, setProjectsList] = useState<ProjectData[]>([]);

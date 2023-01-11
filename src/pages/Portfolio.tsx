@@ -3,6 +3,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import Thumbnail from "../components/Thumbnail";
 import FilterDropdown from "../components/FilterDropdown";
 import ProjectData from "../types/ProjectData";
+import portfolioText from "../content/portfolioText.json";
 
 /**
  * Portfolio will, for each project in the list, generate a small card that includes:
@@ -15,6 +16,8 @@ import ProjectData from "../types/ProjectData";
 const Portfolio: React.FC<{ projects: ProjectData[] }> = ({ projects }) => {
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 	const [filteredProjects, setFilteredProjects] = useState<ProjectData[]>(projects);
+
+	const { title, filterButton, filterHolder, detailsButtons } = portfolioText["EN"];
 
 	// List all existing tags in all the projects to create the filters
 	const allTags = Array.from(new Set(projects.flatMap((project) => project.tags.map((tag) => tag.toLowerCase()))));
@@ -31,9 +34,10 @@ const Portfolio: React.FC<{ projects: ProjectData[] }> = ({ projects }) => {
 	return (
 		<>
 			<Container className="d-flex justify-content-between align-items-center">
-				<h1 className="mb-4">My Work</h1>
+				<h1 className="mb-4">{title}</h1>
 
 				<FilterDropdown
+					texts={{ title: filterButton, holder: filterHolder }}
 					filters={allTags}
 					selectedFilters={selectedTags}
 					onFilterSelectionChanged={setSelectedTags}
@@ -44,7 +48,7 @@ const Portfolio: React.FC<{ projects: ProjectData[] }> = ({ projects }) => {
 				<Row md={2} xs={1} lg={3} className="g-3">
 					{filteredProjects.map((project, key) => (
 						<Col key={key} className="mb-3">
-							<Thumbnail project={project} />
+							<Thumbnail buttonText={detailsButtons} project={project} />
 						</Col>
 					))}
 				</Row>

@@ -2,12 +2,16 @@ import { useState } from "react";
 import { Dropdown, Form } from "react-bootstrap";
 
 interface Props {
+	texts: {
+		title: string;
+		holder: string;
+	};
 	filters: string[];
 	selectedFilters: string[];
 	onFilterSelectionChanged: (newFilters: string[]) => void;
 }
 
-const FilterDropdown: React.FC<Props> = ({ filters, selectedFilters, onFilterSelectionChanged }) => {
+const FilterDropdown: React.FC<Props> = ({ texts, filters, selectedFilters, onFilterSelectionChanged }) => {
 	const [searchQuery, setSearchQuery] = useState("");
 	const filteredFilters = filters.filter((filter) => filter.startsWith(searchQuery));
 
@@ -23,11 +27,11 @@ const FilterDropdown: React.FC<Props> = ({ filters, selectedFilters, onFilterSel
 
 	return (
 		<Dropdown autoClose="outside">
-			<Dropdown.Toggle>Filter</Dropdown.Toggle>
+			<Dropdown.Toggle>{texts.title}</Dropdown.Toggle>
 			<Dropdown.Menu className="bg-secondary border-primary p-2">
 				<Form.Control
 					autoFocus
-					placeholder="Type to filter..."
+					placeholder={texts.holder}
 					value={searchQuery}
 					onChange={(event) => setSearchQuery(event.target.value)}
 				/>

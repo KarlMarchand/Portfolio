@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { BsArrowLeftCircle, BsGithub, BsGlobe } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import ProjectData from "../types/ProjectData";
 
 const ProjectHeader: React.FC<{ name: string; link: string; git: string }> = ({ name, link, git }) => {
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -17,12 +16,12 @@ const ProjectHeader: React.FC<{ name: string; link: string; git: string }> = ({ 
 
 	return (
 		<>
-			<Col xs={1} md={4} className="d-flex align-items-center">
+			<Col xs={3} md={4} className="d-flex align-items-center">
 				<Link to="/projects" className="link-primary link-primary-lighter ms-5">
 					<BsArrowLeftCircle size={screenWidth > 768 ? "3.5rem" : "2.5rem"} />
 				</Link>
 			</Col>
-			<Col xs={11} md={4} className="d-flex align-items-center justify-content-center">
+			<Col xs={6} md={4} className="d-flex align-items-center justify-content-center">
 				<h1>{name}</h1>
 			</Col>
 			<Col xs={12} md={4} className={classLinksContainer}>

@@ -1,4 +1,4 @@
-type ProjectParameters = {
+export type ProjectParameters = {
 	name: string;
 	git: string;
 	link: string;
@@ -15,7 +15,7 @@ type ProjectParameters = {
 	description: string;
 	thumbnailUrl: string;
 	imgs: string[];
-	videos: string[];
+	video: string;
 };
 
 class ProjectData {
@@ -35,7 +35,7 @@ class ProjectData {
 	description: string;
 	thumbnailUrl: string;
 	imgs: string[];
-	videos: string[];
+	video: string;
 	localUrl: string;
 
 	constructor(projectInformations: ProjectParameters) {
@@ -48,9 +48,9 @@ class ProjectData {
 		this.link = projectInformations.link;
 		this.shortDescription = projectInformations.shortDescription;
 		this.tags = projectInformations.tags.map((tag) => tag.toLowerCase());
-		this.thumbnailUrl = projectInformations.thumbnailUrl;
-		this.imgs = projectInformations.imgs;
-		this.videos = projectInformations.videos;
+		this.thumbnailUrl = "/" + projectInformations.thumbnailUrl;
+		this.imgs = projectInformations.imgs.map((img) => "/" + img);
+		this.video = projectInformations.video;
 		this.localUrl = `/projects/${this.convertNameToUrl(this.name)}`;
 	}
 

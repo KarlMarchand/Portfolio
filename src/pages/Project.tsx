@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import ProjectData from "../types/ProjectData";
 import ProjectHeader from "../components/ProjectHeader";
 
@@ -10,12 +10,17 @@ const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
 			</Row>
 			<Row>
 				{/** Should contains the video and overview column */}
-				<Col>
-					<Row className="mx-5">
-						<Col sm={8} className="bg-warning">
-							<video></video>
+				<Col md={{ span: 10, offset: 1 }} className="px-3">
+					<Row>
+						<Col lg={8} className="bg-warning">
+							<div className="ratio ratio-16x9">
+								{project.video.length > 0 && <video src={project.video} controls />}
+								{!(project.video.length > 0) && (
+									<Image fluid src={project.thumbnailUrl} alt="Project Thumbnail" />
+								)}
+							</div>
 						</Col>
-						<Col sm={4} className="bg-info">
+						<Col lg={4} className="bg-info">
 							<p>{project.overview}</p>
 						</Col>
 					</Row>

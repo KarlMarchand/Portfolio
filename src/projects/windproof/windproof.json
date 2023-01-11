@@ -1,0 +1,16 @@
+{
+	"name": "Windproof",
+	"git": "https://github.com/ShortyLogos/windproof",
+	"link": "www.google.com",
+	"shortDescription": "Social Media application made to facilitate household management.",
+	"tags": ["Javascript", "React", "NodeJs", "MongoDB"],
+	"overview": "The description for this project will be added later.",
+	"role": "My role in this project was mostly in the backend and we worked equally on the project's conception and architecture. I've built the database, the Data Access Objects (DAO), ",
+	"technologies": {
+		"languages": "Javascript, HTML, CSS",
+		"frameworks": "Node.js, Express, Socket.IO, Mongoose, NodeMailer, React",
+		"databases": "MongoDB",
+		"tools": "VS Code, GitHub, Postman"
+	},
+	"description": "Coming later..."
+}

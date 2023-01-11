@@ -12,7 +12,7 @@ const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
 				{/** Should contains the video and overview column */}
 				<Col md={{ span: 10, offset: 1 }} className="px-3">
 					<Row>
-						<Col lg={8} className="bg-warning">
+						<Col lg={8}>
 							<div className="ratio ratio-16x9">
 								{project.video.length > 0 && <video src={project.video} controls />}
 								{!(project.video.length > 0) && (
@@ -20,7 +20,7 @@ const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
 								)}
 							</div>
 						</Col>
-						<Col lg={4} className="bg-info">
+						<Col lg={4}>
 							<p>{project.overview}</p>
 						</Col>
 					</Row>

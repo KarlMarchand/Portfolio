@@ -1,0 +1,26 @@
+{
+	"EN": {
+		"title": "Welcome to my portfolio!",
+		"presentation": "I am Karl Marchand, a computer science graduate with a strong passion for programming in backend and software development. I have worked on a variety of projects using technologies such as the MERN stack (MongoDB, Express, React, Node.JS), Python, and C#.",
+		"section1": {
+			"title": "Backend Development:",
+			"content": "I have experience building classic and AJAX servers (PHP) as well as REST API servers (Node.JS, Python). I've used many different Databases Management Systems including NoSQL and SQL (MongoDB, MySQL, SQLite, PostGreSQL, NEO4J, Berkeley DB)."
+		},
+		"section2": {
+			"title": "Other Skills and Interests:",
+			"content": "I am interested in design patterns, DevOps methodologies, and good practices in general, and value continuous learning. If there&apos;s a more optimal way to do something, I want to know."
+		},
+		"section3": {
+			"title": "Recent Projects:",
+			"content": "I recently worked with a team to build a social media style application for families using the MERN stack, with a focus on the backend.",
+			"beforeLink": "To see more project and details, you can check my ",
+			"linkText": "projects",
+			"afterLink": " page."
+		},
+		"section4": {
+			"title": "About me:",
+			"content": "After completing a Bachelor&apos;s degree in Business Administration, I worked for five years as an IT recruiter. During that time, I discovered my passion for the IT industry and always wanted to learn more. When COVID arrived, I took it as a sign and went back to school. Now, after 1.5 years of intensive study, I have a new diploma, renewed passion, a head full of projects, and a thirst for learning new technologies."
+		},
+		"conclusion": "I am excited to share my skills and experience with you, and hope that you enjoy exploring my portfolio. Thank you for visiting!"
+	}
+}

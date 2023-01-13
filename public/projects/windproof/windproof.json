@@ -4,8 +4,8 @@
 	"link": "www.google.com",
 	"shortDescription": "Social Media application made to facilitate household management.",
 	"tags": ["Javascript", "React", "NodeJs", "MongoDB"],
-	"overview": "The description for this project will be added later.",
-	"role": "My role in this project was mostly in the backend and we worked equally on the project's conception and architecture. I've built the database, the Data Access Objects (DAO), ",
+	"overview": "A web application that provides households around the world with a centralized environment for simple and pleasant management of household life. From the grocery list to the list of household tasks to keeping accounts, the mission remains the same: to alleviate the mental burden of users.",
+	"role": "My role in this project was mostly in the backend and we worked equally on the project's conception and architecture. I've built the database, the REST API architecture and everything that comes with it.",
 	"technologies": {
 		"languages": "Javascript, HTML, CSS",
 		"frameworks": "Node.js, Express, Socket.IO, Mongoose, NodeMailer, React",

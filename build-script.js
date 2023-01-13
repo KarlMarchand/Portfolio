@@ -37,7 +37,11 @@ const combineProjects = async (buildMode) => {
 			// Read all the images in the project's directory
 			projectData.imgs = fs
 				.readdirSync(path.join(PROJECTS_ROOT, projectDir))
-				.filter((file) => file.endsWith(".webp") || file.endsWith(".png") || file.endsWith(".jpg"))
+				.filter(
+					(file) =>
+						(file.endsWith(".webp") || file.endsWith(".png") || file.endsWith(".jpg")) &&
+						!file.includes("thumbnail")
+				)
 				.map((image) => path.join(PROJECTS_DIST, projectDir, image));
 
 			// Look for a video in the project's directory

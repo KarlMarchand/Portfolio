@@ -4,6 +4,15 @@ $accent: #d2d3d3;
 $link-text: #b16aed;
 $link-text-hover: #cc99ff;
 
+p {
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+h2 span {
+	border-bottom: 1px solid var(--bs-primary);
+}
+
 .nav-link:hover:not(.active) {
 	color: #fff !important;
 }
@@ -74,6 +83,17 @@ $link-text-hover: #cc99ff;
 
 .dropdown-item * {
 	cursor: pointer !important;
+}
+
+.image-modal .modal-content {
+	min-width: 75vw !important;
+	min-height: 75vh !important;
+	max-width: none !important;
+	max-height: none !important;
+}
+
+.modal-dialog-centered {
+	justify-content: center;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";

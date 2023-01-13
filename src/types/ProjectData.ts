@@ -50,7 +50,7 @@ class ProjectData {
 		this.tags = projectInformations.tags.map((tag) => tag.toLowerCase());
 		this.thumbnailUrl = "/" + projectInformations.thumbnailUrl;
 		this.imgs = projectInformations.imgs.map((img) => "/" + img);
-		this.video = projectInformations.video;
+		this.video = "/" + projectInformations.video;
 		this.localUrl = `/projects/${this.convertNameToUrl(this.name)}`;
 	}
 

@@ -37,19 +37,20 @@ const combineProjects = async (buildMode) => {
 			// Read all the images in the project's directory
 			projectData.imgs = fs
 				.readdirSync(path.join(PROJECTS_ROOT, projectDir))
-				.filter((file) => file.endsWith(".webp") || file.endsWith(".png") || file.endsWith(".jpg"))
+				.filter(
+					(file) =>
+						(file.endsWith(".webp") || file.endsWith(".png") || file.endsWith(".jpg")) &&
+						!file.includes("thumbnail")
+				)
 				.map((image) => path.join(PROJECTS_DIST, projectDir, image));
 
 			// Look for a video in the project's directory
-			try {
-				const path = path.join(PROJECTS_ROOT, projectDir, "video.webm");
-				fs.accessSync(path);
-				// file exists
-				projectData.video = path.join(PROJECTS_DIST, projectDir, "video.webm");
-			} catch (e) {
-				// file does not exists, add an empty string
-				projectData.video = "";
-			}
+			const videos = fs
+				.readdirSync(path.join(PROJECTS_ROOT, projectDir))
+				.filter((file) => file.endsWith(".webm") || file.endsWith(".mp4"))
+				.map((video) => path.join(PROJECTS_DIST, projectDir, video));
+
+			projectData.video = videos.shift() ?? "";
 
 			// Add the project data to the combined data object
 			return projectData;

@@ -33,25 +33,33 @@ const Home: React.FC = () => {
 							<Card.Text>{presentation}</Card.Text>
 							<ListGroup variant="flush">
 								<ListGroup.Item className="bg-dark text-light">
-									<strong>{section1.title}</strong>
-									<br /> {section1.content}
+									<p>
+										<strong>{section1.title}</strong>
+										<br /> {section1.content}
+									</p>
 								</ListGroup.Item>
 								<ListGroup.Item className="bg-dark text-light">
-									<strong>{section2.title}</strong>
-									<br /> {section2.content}
+									<p>
+										<strong>{section2.title}</strong>
+										<br /> {section2.content}
+									</p>
 								</ListGroup.Item>
 								<ListGroup.Item className="bg-dark text-light">
-									<strong>{section3.title}</strong>
-									<br /> {section3.content}
-									{section3.beforeLink}
-									<Link to="/projects" className="link-primary link-primary-lighter">
-										{section3.linkText}
-									</Link>{" "}
-									{section3.afterLink}
+									<p>
+										<strong>{section3.title}</strong>
+										<br /> {section3.content}
+										{section3.beforeLink}
+										<Link to="/projects" className="link-primary link-primary-lighter">
+											{section3.linkText}
+										</Link>{" "}
+										{section3.afterLink}
+									</p>
 								</ListGroup.Item>
 								<ListGroup.Item className="bg-dark text-light">
-									<strong>{section4.title}</strong>
-									<br /> {section4.content}
+									<p>
+										<strong>{section4.title}</strong>
+										<br /> {section4.content}
+									</p>
 								</ListGroup.Item>
 							</ListGroup>
 							<Card.Text>{conclusion}</Card.Text>

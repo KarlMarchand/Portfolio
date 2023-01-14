@@ -4,8 +4,21 @@ import ProjectHeader from "../components/ProjectDetails/ProjectHeader";
 import { BsFillTagFill } from "react-icons/bs";
 import ProjectImage from "../components/ProjectDetails/ProjectImage";
 import ProjectTech from "../components/ProjectDetails/ProjectTech";
+import projectPageText from "../content/projectText.json";
 
 const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
+	const {
+		overviewText,
+		descriptionText,
+		roleText,
+		picturesText,
+		technologiesText,
+		languagesText,
+		frameworksText,
+		databasesText,
+		toolsText,
+	} = projectPageText["EN"];
+
 	return (
 		<Container fluid>
 			<Row className="my-5">
@@ -33,7 +46,7 @@ const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
 						<Col lg={4}>
 							<section className="pt-3 pt-md-0">
 								<h2 className="mb-3">
-									<span>Overview</span>
+									<span>{overviewText}</span>
 								</h2>
 								<p>{project.overview}</p>
 								<ListGroup variant="flush" className="bg-dark mt-2">
@@ -59,7 +72,7 @@ const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
 				<Col md={{ span: 10, offset: 1 }} className="px-3 pt-4">
 					<section className="my-3">
 						<h2 className="mb-3">
-							<span>Description</span>
+							<span>{descriptionText}</span>
 						</h2>
 						<p>{project.description}</p>
 					</section>
@@ -67,18 +80,21 @@ const Project: React.FC<{ project: ProjectData }> = ({ project }) => {
 						<Col md={6}>
 							<section className="my-3">
 								<h2 className="mb-4">
-									<span>Role</span>
+									<span>{roleText}</span>
 								</h2>
 								<p>{project.role}</p>
 							</section>
 						</Col>
 						<Col md={6}>
-							<ProjectTech technologies={project.technologies} />
+							<ProjectTech
+								texts={{ technologiesText, languagesText, frameworksText, databasesText, toolsText }}
+								technologies={project.technologies}
+							/>
 						</Col>
 					</Row>
 					<section className="my-3 mt-md-4">
 						<h2 className="mb-5">
-							<span>Pictures</span>
+							<span>{picturesText}</span>
 						</h2>
 						<Row md={2} xs={1} lg={3} className="g-3">
 							{project.imgs.map((url, key) => {

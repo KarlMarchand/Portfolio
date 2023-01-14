@@ -1,0 +1,13 @@
+{
+	"EN": {
+		"overviewText": "Overview",
+		"descriptionText": "Description",
+		"roleText": "Role",
+		"picturesText": "Pictures",
+		"technologiesText": "Technologies",
+		"languagesText": "Languages",
+		"frameworksText": "Frameworks",
+		"databasesText": "Databases",
+		"toolsText": "Tools"
+	}
+}

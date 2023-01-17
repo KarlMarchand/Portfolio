@@ -18,8 +18,8 @@ const ProjectImage: React.FC<{ url: string }> = ({ url }) => {
 	};
 
 	return (
-		<div onClick={toggleModal} className="project-image">
-			<Image fluid src={url} alt={pictureName} />
+		<div onClick={toggleModal}>
+			<Image fluid src={url} alt={pictureName} className="project-image" />
 			<p>{legend}</p>
 			<Modal show={showModal} className="image-modal" onHide={toggleModal} centered backdrop key={pictureName}>
 				<Modal.Header className="bg-dark">

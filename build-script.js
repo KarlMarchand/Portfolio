@@ -39,14 +39,17 @@ const combineProjects = async (buildMode) => {
 			const medias = new Object();
 
 			// Add the thumbnail image to the project data object
-			const thumbnailUrl = path.join(PROJECTS_DIST, projectDir, "thumbnail.webp");
 			// ! check if the thumbnail exists and crash if it doesn't
 			try {
-				fs.accessSync(thumbnailUrl, fs.constants.F_OK | fs.constants.R_OK);
+				fs.accessSync(
+					path.join(PROJECTS_ROOT, projectDir, "thumbnail.webp"),
+					fs.constants.F_OK | fs.constants.R_OK
+				);
 			} catch {
 				throw new Error("Thumbnail doesn't exists".red);
 			}
-			medias.thumbnailUrl = thumbnailUrl;
+
+			medias.thumbnailUrl = path.join(PROJECTS_DIST, projectDir, "thumbnail.webp");
 
 			// Read all the images in the project's directory
 			medias.imgs = fs

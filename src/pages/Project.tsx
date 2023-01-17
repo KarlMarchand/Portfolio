@@ -41,16 +41,6 @@ const Project: React.FC<{ project: ProjectData; lang: Language }> = ({ project, 
 			<Row>
 				<Col md={{ span: 10, offset: 1 }} className="px-3 pt-4">
 					<Row>
-						<section id="project-description" className="my-3">
-							<h2 className="mb-3">
-								<span>{descriptionText}</span>
-							</h2>
-							{project.description.map((paragraph, key) => {
-								return <p key={key}>{paragraph}</p>;
-							})}
-						</section>
-					</Row>
-					<Row>
 						<Col md={6}>
 							<section id="project-role" className="my-3">
 								<h2 className="mb-4">
@@ -75,11 +65,26 @@ const Project: React.FC<{ project: ProjectData; lang: Language }> = ({ project, 
 						</Col>
 					</Row>
 					<Row>
+						<section id="project-description" className="my-3">
+							<h2 className="mb-3">
+								<span>{descriptionText}</span>
+							</h2>
+							{project.description.map((paragraph, key) => {
+								return (
+									<p key={key} className="py-1">
+										{paragraph}
+									</p>
+								);
+							})}
+						</section>
+					</Row>
+					<Row>
 						<section id="project-images" className="my-3 mt-md-4">
 							<h2 className="mb-5">
 								<span>{picturesText}</span>
 							</h2>
 							<Row md={2} xs={1} lg={3} className="g-3">
+								{/** Suggestion: Could instead have a jsx file for each project if I want to add more interesting descriptions */}
 								{project.imgs.map((url, key) => {
 									return <ProjectImage key={key} url={url} />;
 								})}

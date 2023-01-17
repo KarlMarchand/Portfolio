@@ -34,12 +34,14 @@ const ProjectHeader: React.FC<{ name: string; link: string; git: string }> = ({ 
 							</a>
 						</Col>
 					)}
-					<Col xs={6} md={12} className="my-1 d-flex justify-content-start align-items-center">
-						<BsGithub size={screenWidth > 768 ? "2rem" : "1.5rem"} className="me-2" />
-						<a href={git} className="link-primary link-primary-lighter">
-							Github Repo
-						</a>
-					</Col>
+					{git.length > 0 && (
+						<Col xs={6} md={12} className="my-1 d-flex justify-content-start align-items-center">
+							<BsGithub size={screenWidth > 768 ? "2rem" : "1.5rem"} className="me-2" />
+							<a href={git} className="link-primary link-primary-lighter">
+								Github Repo
+							</a>
+						</Col>
+					)}
 				</Row>
 			</Col>
 		</>

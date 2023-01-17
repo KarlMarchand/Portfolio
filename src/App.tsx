@@ -4,30 +4,33 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
-import ProjectData from "./types/ProjectData";
-import data from "../public/projects/combined-data.json";
+import ProjectData, { ProjectParameters } from "./types/ProjectData";
+import data from "./content/projectsData.json";
+import Language, { getUserLanguage } from "./types/Language";
 
 const App: React.FC = () => {
 	const [projectsList, setProjectsList] = useState<ProjectData[]>([]);
+	const [language, setLanguage] = useState<Language>(getUserLanguage());
 
-	// Each project in the compiled-data file will be converted in a projectData instance
+	// Each project in the projectsData file will be converted in a projectData instance
 	useMemo(() => {
 		setProjectsList([]);
 		data.forEach((p) => {
-			const projectData = new ProjectData(p);
+			const project: ProjectParameters = p[language] ?? p["EN"];
+			const projectData: ProjectData = new ProjectData(project);
 			setProjectsList((prevList) => [...prevList, projectData]);
 		});
-	}, [data]);
+	}, [data, language]);
 
 	return (
 		<>
-			<Navbar />
+			<Navbar changeLang={setLanguage} actualLanguage={language} />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/projects" element={<Portfolio projects={projectsList} />} />
+				<Route path="/" element={<Home lang={language} />} />
+				<Route path="/projects" element={<Portfolio projects={projectsList} lang={language} />} />
 				{/** For each project, we create a dynamic url to link to its details page */}
 				{projectsList.map((project, key) => (
-					<Route key={key} path={project.localUrl} element={<Project project={project} />} />
+					<Route key={key} path={project.localUrl} element={<Project project={project} lang={language} />} />
 				))}
 			</Routes>
 		</>

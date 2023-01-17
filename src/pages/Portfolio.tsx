@@ -4,6 +4,7 @@ import Thumbnail from "../components/Thumbnail";
 import FilterDropdown from "../components/FilterDropdown";
 import ProjectData from "../types/ProjectData";
 import portfolioText from "../content/portfolioText.json";
+import Language from "../types/Language";
 
 /**
  * Portfolio will, for each project in the list, generate a small card that includes:
@@ -13,14 +14,17 @@ import portfolioText from "../content/portfolioText.json";
  * - The 4 first tags of the tag list
  * - A button that leads to the dynamically generated url for the project's details page
  */
-const Portfolio: React.FC<{ projects: ProjectData[] }> = ({ projects }) => {
+const Portfolio: React.FC<{ projects: ProjectData[]; lang: Language }> = ({ projects, lang }) => {
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 	const [filteredProjects, setFilteredProjects] = useState<ProjectData[]>(projects);
+	const [allTags, setAllTags] = useState<string[]>([]);
 
-	const { title, filterButton, filterHolder, detailsButtons } = portfolioText["EN"];
+	const { title, filterButton, filterHolder, detailsButtons } = portfolioText[lang];
 
-	// List all existing tags in all the projects to create the filters
-	const allTags = Array.from(new Set(projects.flatMap((project) => project.tags.map((tag) => tag.toLowerCase()))));
+	useEffect(() => {
+		// List all existing tags in all the projects to create the filters
+		setAllTags(Array.from(new Set(projects.flatMap((project) => project.tags.map((tag) => tag.toLowerCase())))));
+	}, [projects]);
 
 	// Update the project's list when a new filter is selected.
 	useEffect(() => {
@@ -29,7 +33,7 @@ const Portfolio: React.FC<{ projects: ProjectData[] }> = ({ projects }) => {
 				? [...projects]
 				: projects.filter((project) => selectedTags.every((tag) => project.tags.includes(tag)))
 		);
-	}, [selectedTags]);
+	}, [selectedTags, projects]);
 
 	return (
 		<>

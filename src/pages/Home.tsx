@@ -3,9 +3,10 @@ import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import imgUrl from "../imgs/b&w.webp";
 import homePageText from "../content/homeText.json";
+import Language from "../types/Language";
 
-const Home: React.FC = () => {
-	const { title, presentation, section1, section2, section3, section4, conclusion } = homePageText["EN"];
+const Home: React.FC<{ lang: Language }> = ({ lang }) => {
+	const { title, presentation, section1, section2, section3, section4, conclusion } = homePageText[lang];
 
 	return (
 		<Container className="presentation-card">
@@ -30,33 +31,32 @@ const Home: React.FC = () => {
 									</a>
 								</div>
 							</Card.Title>
-							<Card.Text>{presentation}</Card.Text>
+							<Card.Text className="text-light">{presentation}</Card.Text>
 							<ListGroup variant="flush">
-								<ListGroup.Item className="bg-dark text-light">
-									<p>
+								<ListGroup.Item className="bg-dark">
+									<p className="text-light">
 										<strong>{section1.title}</strong>
 										<br /> {section1.content}
 									</p>
 								</ListGroup.Item>
-								<ListGroup.Item className="bg-dark text-light">
-									<p>
+								<ListGroup.Item className="bg-dark">
+									<p className="text-light">
 										<strong>{section2.title}</strong>
 										<br /> {section2.content}
 									</p>
 								</ListGroup.Item>
-								<ListGroup.Item className="bg-dark text-light">
-									<p>
+								<ListGroup.Item className="bg-dark">
+									<p className="text-light">
 										<strong>{section3.title}</strong>
-										<br /> {section3.content}
-										{section3.beforeLink}
+										<br /> {section3.content} {section3.beforeLink}
 										<Link to="/projects" className="link-primary link-primary-lighter">
 											{section3.linkText}
-										</Link>{" "}
+										</Link>
 										{section3.afterLink}
 									</p>
 								</ListGroup.Item>
-								<ListGroup.Item className="bg-dark text-light">
-									<p>
+								<ListGroup.Item className="bg-dark">
+									<p className="text-light">
 										<strong>{section4.title}</strong>
 										<br /> {section4.content}
 									</p>

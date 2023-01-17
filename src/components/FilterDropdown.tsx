@@ -12,12 +12,12 @@ interface Props {
 }
 
 const FilterDropdown: React.FC<Props> = ({ texts, filters, selectedFilters, onFilterSelectionChanged }) => {
-	const [searchQuery, setSearchQuery] = useState("");
-	const filteredFilters = filters.filter((filter) => filter.startsWith(searchQuery));
+	const [searchQuery, setSearchQuery] = useState<string>("");
+	const filteredFilters: string[] = filters.filter((filter) => filter.startsWith(searchQuery));
 
 	const selectFilter = (filter: string) => {
 		// If the filter is already selected, remove it from the array. Otherwise, add it.
-		// This passes to its parent the updated selected filters
+		// It also passes to its parent the updated selected filters
 		onFilterSelectionChanged(
 			selectedFilters.includes(filter)
 				? selectedFilters.filter((selectedFilter) => selectedFilter !== filter)

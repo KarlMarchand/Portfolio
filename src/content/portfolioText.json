@@ -4,5 +4,11 @@
 		"filterButton": "Filter",
 		"filterHolder": "Type to filter",
 		"detailsButtons": "See more details"
+	},
+	"FR": {
+		"title": "Mon Travail",
+		"filterButton": "Filtrer",
+		"filterHolder": "Taper pour filtrer",
+		"detailsButtons": "Voir plus de détails"
 	}
 }

@@ -1,14 +1,25 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Nav, Navbar as NavbarBs, NavDropdown, Col } from "react-bootstrap";
+import Language from "../types/Language";
 import navBarTexts from "../content/navbarText.json";
 
-const Navbar: React.FC = () => {
-	const { home: homeText, projects: projectsText } = navBarTexts["EN"];
-	const [language, setLanguage] = useState("EN");
+type Props = {
+	changeLang: (language: Language) => void;
+	actualLanguage: Language;
+};
 
-	const handleLanguageToggle = (newLanguage: string) => {
+const Navbar: React.FC<Props> = ({ changeLang, actualLanguage }) => {
+	const { home, projects } = navBarTexts[actualLanguage];
+	const [language, setLanguage] = useState<Language>(actualLanguage);
+
+	const handleLanguageToggle = (newLanguage: Language) => {
+		// Update Navbar's language selection
 		setLanguage(newLanguage);
+		// Propagate to the app
+		changeLang(newLanguage);
+		// Store it in Local Storage for the client
+		localStorage.setItem("language", newLanguage);
 	};
 
 	return (
@@ -17,10 +28,10 @@ const Navbar: React.FC = () => {
 				<Col xs={{ span: 6, offset: 3 }}>
 					<Nav className="me-auto justify-content-center">
 						<Nav.Link className="mx-4" to="/" as={NavLink}>
-							{homeText}
+							{home}
 						</Nav.Link>
 						<Nav.Link className="mx-4" to="/projects" as={NavLink}>
-							{projectsText}
+							{projects}
 						</Nav.Link>
 					</Nav>
 				</Col>

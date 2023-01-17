@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Badge, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProjectData from "../types/ProjectData";
@@ -15,8 +16,7 @@ const Thumbnail: React.FC<{ buttonText: string; project: ProjectData }> = ({ but
 			/>
 			<Card.Body className="d-flex flex-column justify-content-between">
 				<Card.Title className="d-flex justify-content-center fs-2 bg-dark p-2 rounded">
-					{" "}
-					{project.name}{" "}
+					{project.name}
 				</Card.Title>
 				<div className="my-4 flex-fill">{project.shortDescription}</div>
 				<div className="d-flex flex-wrap mb-1">

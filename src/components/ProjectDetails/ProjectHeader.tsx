@@ -27,17 +27,17 @@ const ProjectHeader: React.FC<{ name: string; link: string; git: string }> = ({ 
 			<Col xs={12} md={4} className={classLinksContainer}>
 				<Row className="d-flex flex-wrap justify-content-center align-items-center mt-3">
 					{link.length > 0 && (
-						<Col xs={6} md={12} className="my-1 d-flex justify-content-center align-items-center">
+						<Col xs={6} md={12} className="my-1 d-flex justify-content-start align-items-center">
 							<BsGlobe size={screenWidth > 768 ? "2rem" : "1.5rem"} className="me-2" />
 							<a href={link} className="link-primary link-primary-lighter">
 								{link}
 							</a>
 						</Col>
 					)}
-					<Col xs={6} md={12} className="my-1 d-flex justify-content-center align-items-center">
+					<Col xs={6} md={12} className="my-1 d-flex justify-content-start align-items-center">
 						<BsGithub size={screenWidth > 768 ? "2rem" : "1.5rem"} className="me-2" />
 						<a href={git} className="link-primary link-primary-lighter">
-							Github Repository
+							Github Repo
 						</a>
 					</Col>
 				</Row>

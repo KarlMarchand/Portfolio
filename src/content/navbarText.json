@@ -2,5 +2,10 @@
 	"EN": {
 		"home": "Home",
 		"projects": "Projects"
+	},
+
+	"FR": {
+		"home": "Accueil",
+		"projects": "Projets"
 	}
 }

@@ -4,6 +4,8 @@
  * images and data in the project folder.
  * */
 
+const colors = require("colors");
+
 const fs = require("fs");
 const path = require("path");
 
@@ -11,7 +13,7 @@ const combineProjects = async (buildMode) => {
 	// The root directory for the projects
 	const PROJECTS_ROOT = "./public/projects";
 	const PROJECTS_DIST = buildMode ? "./projects" : PROJECTS_ROOT;
-	const filePath = PROJECTS_ROOT + "/combined-data.json";
+	const filePath = "./src/content" + "/projectsData.json";
 
 	// Delete the existing combined file if it exists
 	try {
@@ -19,9 +21,9 @@ const combineProjects = async (buildMode) => {
 		fs.accessSync(filePath);
 		// delete the file
 		fs.unlinkSync(filePath);
-		console.log(`${filePath} deleted`);
+		console.log(`${filePath} deleted\n`);
 	} catch (error) {
-		console.log(`${filePath} does not exist`);
+		console.log(`${filePath} does not exist\n`);
 	}
 
 	// The resulting data object that will contain all the project data
@@ -29,13 +31,25 @@ const combineProjects = async (buildMode) => {
 		fs.readdirSync(PROJECTS_ROOT).map(async (projectDir) => {
 			// Read the project data JSON file
 			const projectDataFilePath = path.join(PROJECTS_ROOT, projectDir, `${projectDir}.json`);
+
+			// ! Will crash the script if the folder doesn't contains the json file
 			const projectData = JSON.parse(fs.readFileSync(projectDataFilePath));
 
+			// Create a common Object that will hold all the medias's urls for any languages
+			const medias = new Object();
+
 			// Add the thumbnail image to the project data object
-			projectData.thumbnailUrl = path.join(PROJECTS_DIST, projectDir, "thumbnail.webp");
+			const thumbnailUrl = path.join(PROJECTS_DIST, projectDir, "thumbnail.webp");
+			// ! check if the thumbnail exists and crash if it doesn't
+			try {
+				fs.accessSync(thumbnailUrl, fs.constants.F_OK | fs.constants.R_OK);
+			} catch {
+				throw new Error("Thumbnail doesn't exists".red);
+			}
+			medias.thumbnailUrl = thumbnailUrl;
 
 			// Read all the images in the project's directory
-			projectData.imgs = fs
+			medias.imgs = fs
 				.readdirSync(path.join(PROJECTS_ROOT, projectDir))
 				.filter(
 					(file) =>
@@ -50,7 +64,12 @@ const combineProjects = async (buildMode) => {
 				.filter((file) => file.endsWith(".webm") || file.endsWith(".mp4"))
 				.map((video) => path.join(PROJECTS_DIST, projectDir, video));
 
-			projectData.video = videos.shift() ?? "";
+			medias.video = videos.shift() ?? "";
+
+			// For each language in the project's json, we add the medias
+			Object.keys(projectData).forEach((k) => {
+				projectData[k] = { ...projectData[k], ...medias };
+			});
 
 			// Add the project data to the combined data object
 			return projectData;
@@ -58,7 +77,7 @@ const combineProjects = async (buildMode) => {
 	);
 
 	// Write the combined data object to a JSON file in the projects root directory
-	fs.writeFileSync(path.join(PROJECTS_ROOT, "combined-data.json"), JSON.stringify(projects));
+	fs.writeFileSync(filePath, JSON.stringify(projects));
 };
 
 (async () => {

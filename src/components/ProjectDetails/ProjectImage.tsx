@@ -15,11 +15,10 @@ const ProjectImage: React.FC<{ url: string }> = ({ url }) => {
 
 	const toggleModal = () => {
 		setShowModal(!showModal);
-		console.log("Toggle Modal");
 	};
 
 	return (
-		<div onClick={toggleModal}>
+		<div onClick={toggleModal} className="project-image">
 			<Image fluid src={url} alt={pictureName} />
 			<p>{legend}</p>
 			<Modal show={showModal} className="image-modal" onHide={toggleModal} centered backdrop key={pictureName}>

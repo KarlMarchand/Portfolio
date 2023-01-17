@@ -3,15 +3,15 @@
 		"title": "Welcome to my portfolio!",
 		"presentation": "I am Karl Marchand, a computer science graduate with a strong passion for programming in backend and software development. I have worked on a variety of projects using technologies such as the MERN stack (MongoDB, Express, React, Node.JS), Python, and C#.",
 		"section1": {
-			"title": "Backend Development:",
+			"title": "Backend development:",
 			"content": "I have experience building classic and AJAX servers (PHP) as well as REST API servers (Node.JS, Python). I've used many different Databases Management Systems including NoSQL and SQL (MongoDB, MySQL, SQLite, PostGreSQL, NEO4J, Berkeley DB)."
 		},
 		"section2": {
-			"title": "Other Skills and Interests:",
-			"content": "I am interested in design patterns, DevOps methodologies, and good practices in general, and value continuous learning. If there&apos;s a more optimal way to do something, I want to know."
+			"title": "Other skills and interests:",
+			"content": "I am interested in design patterns, DevOps methodologies, and good practices in general, and value continuous learning. If there's a more optimal way to do something, I want to know."
 		},
 		"section3": {
-			"title": "Recent Projects:",
+			"title": "Recent projects:",
 			"content": "I recently worked with a team to build a social media style application for families using the MERN stack, with a focus on the backend.",
 			"beforeLink": "To see more project and details, you can check my ",
 			"linkText": "projects",
@@ -19,8 +19,33 @@
 		},
 		"section4": {
 			"title": "About me:",
-			"content": "After completing a Bachelor&apos;s degree in Business Administration, I worked for five years as an IT recruiter. During that time, I discovered my passion for the IT industry and always wanted to learn more. When COVID arrived, I took it as a sign and went back to school. Now, after 1.5 years of intensive study, I have a new diploma, renewed passion, a head full of projects, and a thirst for learning new technologies."
+			"content": "After completing a bachelor's degree in Business Administration, I worked for five years as an IT recruiter. During that time, I discovered my passion for the IT industry and always wanted to learn more. When COVID arrived, I took it as a sign and went back to school. Now, after 1.5 years of intensive study, I have a new diploma, renewed passion, a head full of projects, and a thirst for learning new technologies."
 		},
 		"conclusion": "I am excited to share my skills and experience with you, and hope that you enjoy exploring my portfolio. Thank you for visiting!"
+	},
+
+	"FR": {
+		"title": "Bienvenue sur mon portfolio!",
+		"presentation": "Je m'appelle Karl Marchand, finissant en informatique avec une forte passion pour la programmation backend et logiciel. J'ai travaillé sur une variété de projets en utilisant une multitude de technologies tel que le MERN stack (MongoDB, Express, React, Node.JS), Python, et C#.",
+		"section1": {
+			"title": "Développement Backend:",
+			"content": "J'ai de l'expérience en construction de serveur \"classique\" et AJAX (PHP) en plus de serveurs REST API (Node.JS, Python). J'ai utilisé plusieurs systèmes de gestion de Base de données incluant NoSQL et SQL (MongoDB, MySQL, SQLite, PostGreSQL, NEO4J, Berkeley DB)."
+		},
+		"section2": {
+			"title": "Autre aptitudes et intérêts:",
+			"content": "Je suis intéressé par les designs patterns, la méthodologie DevOps, les bonnes pratiques en général et l'apprentissage continue. S'il y a une façon plus optimale ou clean de le faire, je veux l'apprendre."
+		},
+		"section3": {
+			"title": "Projets récents:",
+			"content": "J'ai récemment travaillé avec un collègue sur la création d'une application de style média social pour les familles en utilisant le MERN stack, avec un focus sur le backend.",
+			"beforeLink": "Pour voir mes projets et leurs détails, vous pouvez regarder ma page de ",
+			"linkText": "projets",
+			"afterLink": "."
+		},
+		"section4": {
+			"title": "À mon sujet:",
+			"content": "Après avoir complété un BAC en Gestion des affaires, j'ai travaillé près de 5 ans en tant que recruteur TI. Durant cette période, J'ai découvert ma passion pour l'industrie des TI et je voulais toujours en apprendre plus. Quand la COVID est arrivée, j'ai pris cela comme un signe et je suis retourné à l'école. Maintenant, après 1.5 ans d'études intensives, J'ai un nouveau diplôme, une passion renouvelée, la tête pleine de projets, et une soif d'apprendre de nouvelles technologies."
+		},
+		"conclusion": "Je suis excité de partager mes habiletés ainsi que mon expérience avec vous, et espère que vous apprécierez mon portfolio. Merci de votre visite!"
 	}
 }

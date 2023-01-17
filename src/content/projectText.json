@@ -1,0 +1,24 @@
+{
+	"EN": {
+		"overviewText": "Overview",
+		"descriptionText": "Description",
+		"roleText": "Role",
+		"picturesText": "Pictures",
+		"technologiesText": "Technologies",
+		"languagesText": "Languages",
+		"frameworksText": "Frameworks",
+		"databasesText": "Databases",
+		"toolsText": "Tools"
+	},
+	"FR": {
+		"overviewText": "Sommaire",
+		"descriptionText": "Description",
+		"roleText": "Rôle",
+		"picturesText": "Images",
+		"technologiesText": "Technologies",
+		"languagesText": "Langages",
+		"frameworksText": "Framework",
+		"databasesText": "Bases de données",
+		"toolsText": "Outils"
+	}
+}

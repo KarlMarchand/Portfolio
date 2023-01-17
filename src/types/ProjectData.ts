@@ -12,7 +12,7 @@ export type ProjectParameters = {
 		databases: string;
 		tools: string;
 	};
-	description: string;
+	description: string[]; // Each string in the array is a new paragraph
 	thumbnailUrl: string;
 	imgs: string[];
 	video: string;
@@ -32,7 +32,7 @@ class ProjectData {
 		databases: string;
 		tools: string;
 	};
-	description: string;
+	description: string[];
 	thumbnailUrl: string;
 	imgs: string[];
 	video: string;
@@ -56,7 +56,7 @@ class ProjectData {
 
 	// Will convert the name of the project to a url compatible name
 	convertNameToUrl(name: string) {
-		let url = name.toLowerCase();
+		let url: string = name.toLowerCase();
 		// Replace all space with an Hyphen
 		url = url.replace(/ /g, "-");
 		// Will remove all accents and converts them to their no-accent equivalent

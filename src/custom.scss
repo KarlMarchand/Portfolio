@@ -108,4 +108,9 @@ h2 span {
 	}
 }
 
+.half-border {
+	border-top: 1px solid #007bff;
+	margin-left: calc(50% - 1px); /*1px is the border width */
+}
+
 @import "../node_modules/bootstrap/scss/bootstrap";

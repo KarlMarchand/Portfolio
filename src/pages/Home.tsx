@@ -68,8 +68,15 @@ const Home: React.FC<{ lang: Language }> = ({ lang }) => {
 					</Card>
 				</Col>
 				<Col xs={12} md={4}>
-					<div className="d-flex align-items-center justify-content-center h-100">
-						<Image src={imgUrl} alt="Picture of Karl Marchand" roundedCircle className="shadow-lg w-100" />
+					<div className="pt-5">
+						<div className="d-flex align-items-center w-100 h-100">
+							<Image
+								src={imgUrl}
+								alt="Picture of Karl Marchand"
+								roundedCircle
+								className="shadow-lg w-100"
+							/>
+						</div>
 					</div>
 				</Col>
 			</Row>

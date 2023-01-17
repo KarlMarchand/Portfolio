@@ -14,7 +14,7 @@ h2 span {
 }
 
 .nav-link:hover:not(.active) {
-	color: #fff !important;
+	color: var(--bs-light) !important;
 }
 
 .nav-link:not(.active) {
@@ -85,6 +85,10 @@ h2 span {
 	cursor: pointer !important;
 }
 
+.project-image:hover {
+	cursor: pointer;
+}
+
 .image-modal .modal-content {
 	min-width: 75vw !important;
 	min-height: 75vh !important;
@@ -94,6 +98,14 @@ h2 span {
 
 .modal-dialog-centered {
 	justify-content: center;
+}
+
+#language-toggle {
+	color: $accent;
+
+	&:hover {
+		color: var(--bs-light);
+	}
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";

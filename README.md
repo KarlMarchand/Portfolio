@@ -1,6 +1,6 @@
 # Portfolio
 
-This is my personnal website where I can showcase my portfolio of projects at the moment.
+This is my [personnal website](http://karlmarchand.ca) where I can showcase my portfolio of projects at the moment.
 
 ## Stack used
 To build this I've used Typescript, React, Bootstrap, Vite and a bit of Node.

@@ -3,7 +3,7 @@
 This is my [personnal website](http://karlmarchand.ca) where I can showcase my portfolio of projects at the moment.
 
 ## Stack used
-To build this I've used Typescript, React, Bootstrap, Vite and a bit of Node.
+To build this I've used Typescript, React, Bootstrap, Vite and a bit of Node. The deployment is automated with DigitalOcean. 
 
 ## How to add projects
 When I want to add a new project, I don't have to remember how the app is made (You're welcome future me).
